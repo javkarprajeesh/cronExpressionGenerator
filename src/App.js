@@ -161,7 +161,7 @@ handleDw = () => {
 
         <div className = "header">
             <h1 className = "heading">CronExpress</h1>
-            <p className = "desc">a simple cron generator</p>
+            <p className = "desc">a simple cron generator by Prajeesh Javkar</p>
         </div>
         
 
