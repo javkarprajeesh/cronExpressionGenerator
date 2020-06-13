@@ -16,8 +16,33 @@ class App extends Component {
   componentDidMount = () => {
     let url = window.location.href
     console.log(url)
+    
     let exp = url.match(/[^#]*$/g)[0].split('_').join(" ")
+
+    let inputValues = url.match(/[^#]*$/g)[0].split("_")
+
+    let min = document.getElementById('min')
+    let hour = document.getElementById('hour')
+    let dayMonth = document.getElementById('dayMonth')
+    let month = document.getElementById('month')
+    let weekDay = document.getElementById('weekDay')
+
+
+   
+    
+
+  
+
+    
+    
     if(isValidCron(exp)){
+
+      min.value = inputValues[0]; 
+      hour.value = inputValues[1]; 
+      dayMonth.value = inputValues[2]; 
+      month.value = inputValues[3]; 
+      weekDay.value = inputValues[4];
+      
       this.setState({
         expression : exp
       })
@@ -57,7 +82,7 @@ class App extends Component {
 
 //Click Event
 handleClick = () =>{
-  console.log("hello boi")
+  
   
   let min = document.getElementById('min').value;
   let hour = document.getElementById('hour').value;
@@ -179,11 +204,11 @@ handleDw = () => {
          <table>
 
            <tr>
-            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus}  onKeyDown = {this.handlePress} id = "min" defaultValue = '*' onFocus = {this.handleMin}></input></td>
-            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown = {this.handlePress} id = "hour" defaultValue = '*' onFocus = {this.handleHour}></input></td>
-            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown = {this.handlePress} id = "dayMonth" defaultValue = '*' onFocus = {this.dayOfMonth}></input></td>
-            <td> <input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown= {this.handlePress} id = "month" defaultValue = '*' onFocus = {this.handleMon}></input></td>
-            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown = {this.handlePress} id = "weekDay" defaultValue = '*' onFocus = {this.handleDw}></input></td>
+            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus}  onKeyDown = {this.handlePress} id = "min"  onFocus = {this.handleMin}></input></td>
+            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown = {this.handlePress} id = "hour"  onFocus = {this.handleHour}></input></td>
+            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown = {this.handlePress} id = "dayMonth"  onFocus = {this.dayOfMonth}></input></td>
+            <td> <input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown= {this.handlePress} id = "month"  onFocus = {this.handleMon}></input></td>
+            <td ><input className = "inputs" type = 'text' onFocus = {this.handleFocus} onKeyDown = {this.handlePress} id = "weekDay"  onFocus = {this.handleDw}></input></td>
           </tr>
 
 
@@ -221,28 +246,28 @@ handleDw = () => {
           <table className = "exTable">
             <tr>
               <td>every minute</td>
-              <td><a href= "http://localhost:3000/#*_*_*_*_*" target="_blank">* * * * *</a></td>
+              <td><a href= "http://croncalculator-prajeesh.surge.sh/#*_*_*_*_*" target="_blank">* * * * *</a></td>
             </tr>
 
 
             <tr>
             <td>every 5 minute</td>
-              <td><a href= "http://localhost:3000/#*/5_*_*_*_*" target="_blank">*/5 * * * *</a></td>
+              <td><a href= "http://croncalculator-prajeesh.surge.sh/#*/5_*_*_*_*" target="_blank">*/5 * * * *</a></td>
             </tr>
 
             <tr>
               <td>every day</td>
-              <td><a href= "http://localhost:3000/#0_0_*_*_*" target="_blank">0 0 * * * </a></td>
+              <td><a href= "http://croncalculator-prajeesh.surge.sh/#0_0_*_*_*" target="_blank">0 0 * * * </a></td>
             </tr>
 
             <tr>
               <td>monthly</td>
-              <td><a href = "http://localhost:3000/#0_0_1_*_*" target= "_blank">0 0 1 * *</a></td>
+              <td><a href = "http://croncalculator-prajeesh.surge.sh/#0_0_1_*_*" target= "_blank">0 0 1 * *</a></td>
             </tr>
 
             <tr>
               <td>every year</td>
-              <td><a href = "http://localhost:3000/#0_0_1_1_*" target= "_blank">0 0 1 1 *</a></td>
+              <td><a href = "http://croncalculator-prajeesh.surge.sh/#0_0_1_1_*" target= "_blank">0 0 1 1 *</a></td>
             </tr>
             
           </table>
